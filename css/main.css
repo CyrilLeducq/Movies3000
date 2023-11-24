@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    background-color: #052541;
+    color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .movies-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .movies-wrapper section {
+        flex-basis: 49%;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .movies {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .movie {
+        flex-basis: 32%;
+    }
+}
+
+.movie {
+    position: relative;
+
+    /* faire en sorte que l'image ne déborde pas de ce conteneur lors du zoom au survol */
+    overflow: hidden;
+
+    margin: 0;
+}
+
+.movie img {
+    width: 100%;
+    /* on ajoute cette ligne afin de supprimer les 4px qui s'ajoutent en bas de l'image */
+    vertical-align: bottom;
+
+    transition: all 0.5s;
+}
+
+.movie:hover img {
+    /* transformations multiples */
+    /* transform: scale(1.1) rotate(1turn); */
+    transform: scale(1.1);
+}
+
+.movie figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(5, 37, 65, 0);
+    color: rgba(255, 255, 255, 0);
+
+    padding: 2rem 1rem;
+
+    transform: translateY(-1rem);
+
+    /* transition */
+    transition: all 0.5s;
+}
+
+.movie:hover figcaption {
+    background-color: rgba(5, 37, 65, 0.65);
+    color: white;
+    transform: translateY(0);
+}
